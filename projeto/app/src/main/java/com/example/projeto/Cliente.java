@@ -1,15 +1,32 @@
 package com.example.projeto;
 
-public class cliente {
-    String nome, telefone, sugestoes;
-    int atendimento, infraestrutura, qualidadedoservico, preco;
+public class Cliente {
+    String nome, telefone, sugestoes, placa;
+    int atendimento, infraestrutura, qualidadedoservico, conhecimento;
 
-    public cliente(String nome, String telefone) {
+    public Cliente(String placa, String nome, String telefone) {
+        this.placa = placa;
         this.nome = nome;
         this.telefone = telefone;
     }
 
-    public cliente() {
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public int getConhecimento() {
+        return conhecimento;
+    }
+
+    public void setConhecimento(int conhecimento) {
+        this.conhecimento = conhecimento;
+    }
+
+    public Cliente() {
     }
 
     public String getNome() {
@@ -58,13 +75,5 @@ public class cliente {
 
     public void setQualidadedoservico(int qualidadedoservico) {
         this.qualidadedoservico = qualidadedoservico;
-    }
-
-    public int getPreco() {
-        return preco;
-    }
-
-    public void setPreco(int preco) {
-        this.preco = preco;
     }
 }
