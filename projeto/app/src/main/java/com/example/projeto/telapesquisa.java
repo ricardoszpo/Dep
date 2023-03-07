@@ -3,6 +3,7 @@ package com.example.projeto;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.text.HtmlCompat;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -41,7 +42,10 @@ public class telapesquisa extends AppCompatActivity {
             pergunta.setText("Avalie o nosso grau de conhecimento");
         }
         else{
-            //ir para sugestoes
+            sugestoes.cliente = cliente;
+            Intent i = new Intent(this, sugestoes.class);
+            startActivity(i);
+
         }
     }
     public void excelente(View v){
