@@ -5,6 +5,7 @@ import androidx.core.text.HtmlCompat;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 public class sugestoes extends AppCompatActivity {
@@ -18,14 +19,14 @@ public class sugestoes extends AppCompatActivity {
         getSupportActionBar().hide();
     }
 
-    public void sugestoes() {
-
+    public void enviarsugestao() {
+            String sugestao = sugestao.getText().toString();
     }
 
     @Override
     public void onBackPressed() {
         String mensagem = "<h1><big>Você precisa finalizar a pesquisa</big></h1>";
-        Toast toast = Toast.makeText(this, HtmlCompat.fromHtml(mensagem,HtmlCompat.FROM_HTML_MODE_COMPACT), Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(this, HtmlCompat.fromHtml(mensagem, HtmlCompat.FROM_HTML_MODE_COMPACT), Toast.LENGTH_LONG);
         toast.getView().setBackgroundColor(Color.GREEN);
         toast.show();
     }
