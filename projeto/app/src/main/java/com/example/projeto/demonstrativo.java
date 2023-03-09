@@ -24,7 +24,7 @@ public class demonstrativo extends AppCompatActivity {
         qualidade = findViewById(R.id.mdqualidadedoservico);
         geral = findViewById(R.id.mediageral);
         quantidade = lista.size();
-        contador.setText(quantidade + " Clientes fizeram a avaliação");
+        contador.setText("Total de " + quantidade + " clientes fizeram a avaliação");
         fazmedias();
     }
 
@@ -45,10 +45,10 @@ public class demonstrativo extends AppCompatActivity {
         mediaqualidade /= quantidade;
         mediaconhecimento /= quantidade;
         mediageral = (mediaatendimento+mediainfra+mediaconhecimento+mediaqualidade)/4.0;
-        atendimento.setText("media de atendimento: " +String.format("%.2f",mediaatendimento));
-        infra.setText("media da infraestrutura: " +String.format("%.2f",mediainfra));
-        qualidade.setText("media de qualidade de serviço: " +String.format("%.2f",mediaqualidade));
-        conhecimento.setText("media do conhecimento: " +String.format("%.2f",mediaconhecimento));
-        geral.setText("Media geral da loja:" +String.format("%.2f",mediageral));
+        atendimento.setText("Média de atendimento: " +String.format("%.2f",mediaatendimento));
+        infra.setText("Média da infraestrutura: " +String.format("%.2f",mediainfra));
+        qualidade.setText("Média de qualidade de serviço: " +String.format("%.2f",mediaqualidade));
+        conhecimento.setText("Média do conhecimento: " +String.format("%.2f",mediaconhecimento));
+        geral.setText("Média geral da loja: " +String.format("%.2f",mediageral));
     }
 }
