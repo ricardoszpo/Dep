@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "129204417064",
+    "project_id": "pesquisa-de-satisfacao-73f45",
+    "storage_bucket": "pesquisa-de-satisfacao-73f45.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129204417064:android:72f75134d504ef19eefb1d",
+        "android_client_info": {
+          "package_name": "com.example.projeto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129204417064-k96572qu1crqvq6fgtg1bq91t6jqrj0r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHrPlm1jtO16GhiqLFdP5mywhSOagC41g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129204417064-k96572qu1crqvq6fgtg1bq91t6jqrj0r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
