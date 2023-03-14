@@ -1,5 +1,8 @@
 package com.example.projeto;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Cliente {
     String nome, telefone, sugestoes, placa;
     int atendimento, infraestrutura, qualidadedoservico, conhecimento;
@@ -8,6 +11,17 @@ public class Cliente {
         this.placa = placa;
         this.nome = nome;
         this.telefone = telefone;
+    }
+
+    public Cliente(String nome, String telefone, String sugestoes, String placa, int atendimento, int infraestrutura, int qualidadedoservico, int conhecimento) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.sugestoes = sugestoes;
+        this.placa = placa;
+        this.atendimento = atendimento;
+        this.infraestrutura = infraestrutura;
+        this.qualidadedoservico = qualidadedoservico;
+        this.conhecimento = conhecimento;
     }
 
     public String getPlaca() {
@@ -75,5 +89,9 @@ public class Cliente {
 
     public void setQualidadedoservico(int qualidadedoservico) {
         this.qualidadedoservico = qualidadedoservico;
+    }
+    public void salvar(){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        reference.child("clientes").child(placa).setValue(this);
     }
 }

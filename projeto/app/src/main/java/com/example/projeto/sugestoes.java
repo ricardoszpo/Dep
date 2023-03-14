@@ -14,8 +14,8 @@ import java.util.ArrayList;
 
 public class sugestoes extends AppCompatActivity {
     static Cliente cliente;
-    static ArrayList lista;
-EditText campo;
+    EditText campo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,14 +32,11 @@ EditText campo;
         toast.show();
     }
 
-    public void envia(View v){
+    public void envia(View v) {
         String texto = campo.getText().toString();
         cliente.setSugestoes(texto);
         campo.setText("");
-        lista.add(cliente);
-        //Intent i = new Intent(this,MainActivity.class);
-        //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        //startActivity();
+        cliente.salvar();
         telapesquisa.avaliando = false;
         super.onBackPressed();
     }
