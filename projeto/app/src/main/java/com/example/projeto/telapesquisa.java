@@ -30,7 +30,7 @@ public class telapesquisa extends AppCompatActivity {
     }
 
 
-    public void definePergunta() {
+    public void definePergunta() { //define quais perguntas serão feitas aos clientes
         if (numPergunta == 1) {
             pergunta.setText("Avalie nosso atendimento");
         } else if (numPergunta == 2) {
@@ -47,7 +47,7 @@ public class telapesquisa extends AppCompatActivity {
         }
     }
 
-    public void excelente(View v) {
+    public void excelente(View v) { //valor das perguntas
         if (numPergunta == 1) {
             cliente.atendimento += 5;
         } else if (numPergunta == 2) {

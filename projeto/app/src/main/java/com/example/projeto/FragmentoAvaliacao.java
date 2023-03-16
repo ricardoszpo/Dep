@@ -4,10 +4,13 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,7 +26,9 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class FragmentoAvaliacao extends Fragment {
     TextView contador, atendimento, infra, qualidade, conhecimento, geral;
-    int quantidade = 0;
+    EditText mes, ano;
+    ImageView logo;
+    DatabaseReference reference;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -75,14 +80,22 @@ public class FragmentoAvaliacao extends Fragment {
         infra = v.findViewById(R.id.mdinfraestrutura);
         qualidade = v.findViewById(R.id.mdqualidadedoservico);
         geral = v.findViewById(R.id.mediageral);
-        fazmedias();
+        mes = v.findViewById(R.id.mesdata);
+        ano = v.findViewById(R.id.ano);
+        logo = v.findViewById(R.id.imagefiltro);
+        logo.setOnClickListener(view -> {
+            filtra();
+        });
+        reference = FirebaseDatabase.getInstance().getReference().child("clientes");
+        FragmentoSugestoes.reference = reference;
         return v;
     }
 
-    public void fazmedias() {
+    public void fazmedias(String mes, String ano) {
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("clientes").addListenerForSingleValueEvent(new ValueEventListener() {
+        reference = FirebaseDatabase.getInstance().getReference().child("clientes").child(ano).child(mes);
+        FragmentoSugestoes.reference = reference;
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 double mediaatendimento = 0;
@@ -90,6 +103,7 @@ public class FragmentoAvaliacao extends Fragment {
                 double mediaqualidade = 0;
                 double mediaconhecimento = 0;
                 double mediageral = 0;
+                int quantidade = 0;
                 for (DataSnapshot dn : snapshot.getChildren()) {
                     Cliente c = (Cliente) dn.getValue(Cliente.class);
                     quantidade++;
@@ -98,7 +112,7 @@ public class FragmentoAvaliacao extends Fragment {
                     mediaqualidade += c.getQualidadedoservico();
                     mediaconhecimento += c.getConhecimento();
                 }
-                contador.setText("Total de " + quantidade + " clientes fizeram a avaliação");
+                contador.setText("Total de " + quantidade + " clientes fizeram a avaliação"); //diz quantos clientes fizeram a avaliação
                 mediaatendimento /= quantidade;
                 mediainfra /= quantidade;
                 mediaqualidade /= quantidade;
@@ -108,7 +122,7 @@ public class FragmentoAvaliacao extends Fragment {
                 infra.setText("Média da infraestrutura: " + String.format("%.2f", mediainfra));
                 qualidade.setText("Média de qualidade de serviço: " + String.format("%.2f", mediaqualidade));
                 conhecimento.setText("Média do conhecimento: " + String.format("%.2f", mediaconhecimento));
-                geral.setText("Média geral da loja: " + String.format("%.2f", mediageral));
+                geral.setText("Média geral da loja: " + String.format("%.2f", mediageral)); // faz a media da nota da loja
             }
 
             @Override
@@ -116,5 +130,10 @@ public class FragmentoAvaliacao extends Fragment {
 
             }
         });
+    }
+    public void filtra(){
+        String m = mes.getText().toString();
+        String a = ano.getText().toString();
+        fazmedias(m,a);
     }
 }

@@ -17,7 +17,7 @@ public class demonstrativo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demonstrativo);
-        getSupportActionBar().hide();
+        getSupportActionBar().hide(); // remove a barra no topo do app
         tabl = findViewById(R.id.tabl);
         pager = findViewById(R.id.pager);
         FragmentManager fm = getSupportFragmentManager();
@@ -25,7 +25,7 @@ public class demonstrativo extends AppCompatActivity {
         pager.setAdapter(adaptadorDemonstrativo);
         tabl.setSelectedTabIndicatorColor(Color.parseColor("#faed3e"));
         tabl.setTabTextColors(Color.parseColor("#000000"), Color.parseColor("#FF0000"));
-        tabl.addTab(tabl.newTab().setText("Médias"));
+        tabl.addTab(tabl.newTab().setText("Médias")); //define quais sao os nomes que vao aparecer no layout do tab
         tabl.addTab(tabl.newTab().setText("Sugestoes"));
         tabl.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

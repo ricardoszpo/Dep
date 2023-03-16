@@ -13,7 +13,7 @@ public class FragmentAtapter extends FragmentStateAdapter {
     }
     @NonNull
     @Override
-    public Fragment createFragment(int position) {
+    public Fragment createFragment(int position) { //define a posição
         switch (position) {
             case 1:
                 return new FragmentoSugestoes();
@@ -24,5 +24,5 @@ public class FragmentAtapter extends FragmentStateAdapter {
     @Override
     public int getItemCount() {
         return 2;
-    }
+    } //define a quantidade
 }

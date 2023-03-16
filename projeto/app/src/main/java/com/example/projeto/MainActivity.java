@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         limpar();
     }
 
-    public void limpar() {
+    public void limpar() { //limpa todas as caixas de texto apos serem usadas
         nome.setText("");
         telefone.setText("");
         placa.setText("");
@@ -36,12 +38,14 @@ public class MainActivity extends AppCompatActivity {
         String n = nome.getText().toString();
         String t = telefone.getText().toString();
         String p = placa.getText().toString();
-        if (n.equals("admin") && t.equals("0000") && p.equals("abc1234")) {
+        if (n.equals("admin") && t.equals("0000") && p.equals("abc1234")) { //senha para entrar na parte das notas e sugestoes do app
             Intent i = new Intent(this, demonstrativo.class);
             startActivity(i);
             limpar();
         } else if (!p.equals("")) {
-            Cliente c = new Cliente(p, n, t);
+            int m = LocalDateTime.now().getMonthValue();
+            int a = LocalDateTime.now().getYear();
+            Cliente c = new Cliente(p, n, t, m, a);
             Intent i = new Intent(this, telapesquisa.class);
             startActivity(i);
             telapesquisa.cliente = c;
