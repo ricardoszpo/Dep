@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         String n = nome.getText().toString();
         String t = telefone.getText().toString();
         String p = placa.getText().toString();
-        if (n.equals("admin") && t.equals("0000") && p.equals("abc1234")) { //senha para entrar na parte das notas e sugestoes do app
+        if (n.equals("") && t.equals("") && p.equals("")) { //senha para entrar na parte das notas e sugestoes do app
             Intent i = new Intent(this, demonstrativo.class);
             startActivity(i);
             limpar();

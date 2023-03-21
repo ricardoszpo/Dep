@@ -12,40 +12,73 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="50dp"
-        android:textSize="48sp"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="235dp"
+        android:layout_height="235dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/oleoquente"
+        android:contentDescription="TODO" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
-        android:text="Button"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pergunta"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
+    <ImageButton
         android:id="@+id/excelente"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="500dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="500dp"
-        android:backgroundTint="#4CC600"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/otimo"
+        android:contentDescription="@string/app_name"
         android:onClick="excelente"
-        android:text="EXCELENTE"
+
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bom"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pergunta"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/bom"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bom"
+        android:contentDescription="@string/app_name"
+        android:onClick="bom"
+
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/regular"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pergunta"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/regular"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/mediano"
+        android:contentDescription="@string/app_name"
+        android:onClick="regular"
+
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,72 +86,40 @@
         app:layout_constraintTop_toBottomOf="@+id/pergunta"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/bom"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="500dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="500dp"
-        android:backgroundTint="#1A6106"
-        android:onClick="bom"
-        android:text="BOM"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/excelente"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/regular"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="500dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="500dp"
-        android:backgroundTint="#494949"
-        android:onClick="regular"
-        android:text="REGULAR"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bom"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
+    <ImageButton
         android:id="@+id/ruim"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="500dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="500dp"
-        android:backgroundTint="#850000"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/ruim"
+        android:contentDescription="@string/app_name"
         android:onClick="ruim"
-        android:text="RUIM"
+
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regular"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/regular"
+        app:layout_constraintTop_toBottomOf="@+id/pergunta"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
+    <ImageButton
         android:id="@+id/pessimo"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="500dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="500dp"
-        android:backgroundTint="#D50101"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/pessimo"
+        android:contentDescription="@string/app_name"
         android:onClick="pessimo"
-        android:text="PÉSSIMO"
+
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ruim"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ruim"
+        app:layout_constraintTop_toBottomOf="@+id/pergunta"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
