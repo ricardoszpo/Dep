@@ -28,17 +28,6 @@ public class Cliente {
         this.ano = ano;
     }
 
-    public Cliente(String nome, String telefone, String sugestoes, String placa, int atendimento, int infraestrutura, int qualidadedoservico, int conhecimento) {
-        this.nome = nome;
-        this.telefone = telefone;
-        this.sugestoes = sugestoes;
-        this.placa = placa;
-        this.atendimento = atendimento;
-        this.infraestrutura = infraestrutura;
-        this.qualidadedoservico = qualidadedoservico;
-        this.conhecimento = conhecimento;
-    }
-
     public int getMes() {
         return mes;
     }
