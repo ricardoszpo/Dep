@@ -86,9 +86,9 @@ public class mediapreco extends Fragment {
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<Carro> lista = new ArrayList<>();
+                ArrayList<carros> lista = new ArrayList<>();
                 for (DataSnapshot dn : snapshot.getChildren()) {
-                    Carro c = (Carro) dn.getValue(Carro.class);
+                    carros c = (carros) dn.getValue(carros.class);
                     lista.add(c);
                 }
                 Recycleradaptermedia adapter = new Recycleradaptermedia(getContext(),lista,c -> {

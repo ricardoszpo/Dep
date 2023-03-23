@@ -3,10 +3,10 @@ package com.example.carros;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Carro {
+public class carros {
     String marca, placa, ano, preco, modelo;
 
-    public Carro(String placa, String marca, String ano, String preco, String modelo) {
+    public carros(String placa, String marca, String ano, String preco, String modelo) {
         this.marca = marca;
         this.placa = placa;
         this.ano = ano;
@@ -54,7 +54,7 @@ public class Carro {
         this.modelo = modelo;
     }
 
-    public Carro() {
+    public carros() {
 
     }
     public void salvar() {

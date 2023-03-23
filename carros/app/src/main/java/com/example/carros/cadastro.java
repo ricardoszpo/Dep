@@ -46,7 +46,7 @@ public class cadastro extends AppCompatActivity {
         limpar();
 
         if (!p.equals("")) {
-            Carro c = new Carro(p, m, a, o, r);
+            carros c = new carros(p, m, a, o, r);
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
             c.salvar();

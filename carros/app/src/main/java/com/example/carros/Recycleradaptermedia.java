@@ -14,10 +14,10 @@ import java.util.ArrayList;
 
 public class Recycleradaptermedia extends RecyclerView.Adapter<Recycleradaptermedia.MyviewHolder> {
     Context context;
-    ArrayList<Carro> lista;
+    ArrayList<carros> lista;
     Recycleradaptermedia.OnItemClickListener listener;
 
-    public Recycleradaptermedia(Context context, ArrayList<Carro> lista, OnItemClickListener listener) {
+    public Recycleradaptermedia(Context context, ArrayList<carros> lista, OnItemClickListener listener) {
         this.context = context;
         this.lista = lista;
         this.listener = listener;
@@ -32,7 +32,7 @@ public class Recycleradaptermedia extends RecyclerView.Adapter<Recycleradapterme
 
     @Override
     public void onBindViewHolder(@NonNull Recycleradaptermedia.MyviewHolder holder, int position) {
-        Carro c = lista.get(position);
+        carros c = lista.get(position);
         holder.marcaS.setText(c.getmarca());
         holder.precoS.setText(c.getpreco());
         holder.itemView.setOnClickListener(view ->{
@@ -56,6 +56,6 @@ public class Recycleradaptermedia extends RecyclerView.Adapter<Recycleradapterme
     }
 
     public interface OnItemClickListener {
-        void onItemClick(Carro c);
+        void onItemClick(carros c);
     }
 }
