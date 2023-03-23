@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,9 +86,9 @@ public class mediapreco extends Fragment {
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<carros> lista = new ArrayList<>();
+                ArrayList<Carro> lista = new ArrayList<>();
                 for (DataSnapshot dn : snapshot.getChildren()) {
-                    carros c = (carros) dn.getValue(carros.class);
+                    Carro c = (Carro) dn.getValue(Carro.class);
                     lista.add(c);
                 }
                 Recycleradaptermedia adapter = new Recycleradaptermedia(getContext(),lista,c -> {

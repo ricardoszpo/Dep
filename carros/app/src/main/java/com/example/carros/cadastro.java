@@ -7,11 +7,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.time.LocalDateTime;
 
 public class cadastro extends AppCompatActivity {
     EditText ano, marca, placa, modelo, preco;
@@ -49,7 +46,7 @@ public class cadastro extends AppCompatActivity {
         limpar();
 
         if (!p.equals("")) {
-            carros c = new carros(p, m, a, o, r);
+            Carro c = new Carro(p, m, a, o, r);
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
             c.salvar();
