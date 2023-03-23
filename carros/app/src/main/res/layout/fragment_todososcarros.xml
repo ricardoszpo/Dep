@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv"
+            android:id="@+id/rvmedia"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="1dp"
@@ -23,18 +23,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logosugestoes" />
+            app:layout_constraintTop_toBottomOf="@+id/logomedia" />
 
         <ImageView
-            android:id="@+id/logosugestoes"
-            android:layout_width="235dp"
-            android:layout_height="235dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_launcher_background"
-            app:layout_constraintBottom_toTopOf="@+id/rv"
+            android:id="@+id/logomedia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/carro"
+            app:layout_constraintBottom_toTopOf="@+id/rvmedia"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

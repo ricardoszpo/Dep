@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FF0000</color>
     <color name="orange">#FF5000</color>
+    <color name="bluelight">#54b6e5</color>
+    <color name="blue">#1186a7</color>
 </resources>

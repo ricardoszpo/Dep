@@ -1,12 +1,25 @@
 package com.example.carros;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,7 +27,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class mediapreco extends Fragment {
-
+    RecyclerView rvmedia;
+    ImageView logomedia;
+    static DatabaseReference reference;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -59,6 +74,41 @@ public class mediapreco extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mediapreco, container, false);
+        View v = inflater.inflate(R.layout.fragment_mediapreco, container, false);
+        rvmedia = v.findViewById(R.id.rvmedia);
+        logomedia = v.findViewById(R.id.logomedia);
+        logomedia.setOnClickListener(view -> {
+            carrega();
+        });
+        return v;
+    }
+    public void carrega(){
+
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<carros> lista = new ArrayList<>();
+                for (DataSnapshot dn : snapshot.getChildren()) {
+                    carros c = (carros) dn.getValue(carros.class);
+                    lista.add(c);
+                }
+                Recycleradaptermedia adapter = new Recycleradaptermedia(getContext(),lista,c -> {
+                    AlertDialog.Builder alerta = new AlertDialog.Builder(getContext());
+                    alerta.setTitle(c.getPlaca());
+                    String mensagem = "Placa: "+c.getPlaca()+"\nMarca: "+c.getmarca()+"\nModelo: "+c.getModelo()+"\nAno: "+c.getAno()+"\nPreço: "+c.getpreco();
+                    alerta.setMessage(mensagem);
+                    alerta.show();
+                });
+                rvmedia.setAdapter(adapter);
+                rvmedia.setHasFixedSize(true);
+                rvmedia.setLayoutManager(new LinearLayoutManager(getContext()));
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
