@@ -6,7 +6,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class carros {
     String marca, placa, ano, preco, modelo;
 
-    public carros(String placa, String nome, String telefone, String ano, String r) {
+    public carros(String placa, String marca, String ano, String preco, String modelo) {
         this.marca = marca;
         this.placa = placa;
         this.ano = ano;
@@ -14,11 +14,11 @@ public class carros {
         this.modelo = modelo;
     }
 
-    public String getMarca() {
+    public String getmarca() {
         return marca;
     }
 
-    public void setMarca(String marca) {
+    public void setmarca(String marca) {
         this.marca = marca;
     }
 
@@ -38,11 +38,11 @@ public class carros {
         this.ano = ano;
     }
 
-    public String getPreco() {
+    public String getpreco() {
         return preco;
     }
 
-    public void setPreco(String preco) {
+    public void setpreco(String preco) {
         this.preco = preco;
     }
 
@@ -57,11 +57,8 @@ public class carros {
     public  carros() {
 
     }
-
-
-
     public void salvar() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("clientes").child(placa).setValue(this);
+        reference.child("Carros").child(placa).setValue(this);
     }
 }

@@ -11,10 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.time.LocalDateTime;
+
 public class cadastro extends AppCompatActivity {
     EditText ano, marca, placa, modelo, preco;
 
-    private Button btncadastrar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +28,8 @@ public class cadastro extends AppCompatActivity {
         placa = findViewById(R.id.placa);
         modelo = findViewById(R.id.modelo);
         preco = findViewById(R.id.preco);
-        btncadastrar = findViewById(R.id.btncadastrar);
         limpar();
+
     }
 
     public void limpar() {
@@ -47,18 +49,20 @@ public class cadastro extends AppCompatActivity {
         limpar();
 
         if (!p.equals("")) {
-            carros c = new carros(m, p, a, o, r);
+            carros c = new carros(p, m, a, o, r);
             Intent i = new Intent(this, MainActivity.class);
-            MainActivity.carros = c;
+            startActivity(i);
+            c.salvar();
             limpar();
-        }
-        else if (m.equals("") && p.equals("") && a.equals("") && o.equals("") && r.equals("")) {
-            String mensagem = "<h1><big>É obrigatorio responder todos os campos</big></h1>";
+        } else {
+            String mensagem = "<h1><big>Preencha todos corretamente</big></h1>";
             Toast toast = Toast.makeText(this, HtmlCompat.fromHtml(mensagem, HtmlCompat.FROM_HTML_MODE_COMPACT), Toast.LENGTH_LONG);
             toast.getView().setBackgroundColor(Color.GREEN);
             toast.show();
 
         }
+
+        }
     }
     
-}
+

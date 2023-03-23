@@ -9,8 +9,6 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static carros carros;
-
     private Button btncadastro;
     private Button btncadastrados;
 
