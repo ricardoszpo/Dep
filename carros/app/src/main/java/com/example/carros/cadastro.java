@@ -7,11 +7,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class cadastro extends AppCompatActivity {
     EditText ano, marca, placa, modelo, preco;
+
+    private Button btncadastrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,7 @@ public class cadastro extends AppCompatActivity {
         placa = findViewById(R.id.placa);
         modelo = findViewById(R.id.modelo);
         preco = findViewById(R.id.preco);
+        btncadastrar = findViewById(R.id.btncadastrar);
         limpar();
     }
 
