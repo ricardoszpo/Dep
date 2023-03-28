@@ -18,9 +18,9 @@ public class fragmentadapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 1:
-                return new mediapreco();
+                return new todososcarros();
         }
-        return new todososcarros();
+        return new mediapreco();
     }
 
     @Override

@@ -76,7 +76,7 @@ public class mediapreco extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_mediapreco, container, false);
-        rvmedia = v.findViewById(R.id.rvtodos);
+        rvmedia = v.findViewById(R.id.rvmedia);
         logomedia = v.findViewById(R.id.logomedia);
         Toast.makeText(getContext(), "Cheguei!", Toast.LENGTH_SHORT).show();
         carrega();
@@ -101,11 +101,16 @@ public class mediapreco extends Fragment {
                         marcas.add(c.getmarca().toUpperCase());
                     }
                 }
-                Recycleradaptermedia adapter = new Recycleradaptermedia(getContext(),lista,marcas,c -> {
+                Recycleradaptermedia adapter = new Recycleradaptermedia(getContext(),lista,marcas,marca -> {
+                    String mensagem = "";
+                    for(Carro c : lista){
+                        if(c.getmarca().toUpperCase().equals(marca)){
+                            mensagem += "Modelo: "+c.getModelo()+"\nAno: "+c.getAno()+"\nPlaca: "+c.getPlaca()+"\nPreço: "+c.getpreco()+"\n__________\n";
+                        }
+                    }
                     AlertDialog.Builder alerta = new AlertDialog.Builder(getContext());
-                    //alerta.setTitle(c.getPlaca());
-                    //String mensagem = "Placa: "+c.getPlaca()+"\nMarca: "+c.getmarca()+"\nModelo: "+c.getModelo()+"\nAno: "+c.getAno()+"\nPreço: "+c.getpreco();
-                    alerta.setMessage("mensagem");
+                    alerta.setTitle(marca);
+                    alerta.setMessage(mensagem);
                     alerta.show();
                 });
                 rvmedia.setAdapter(adapter);

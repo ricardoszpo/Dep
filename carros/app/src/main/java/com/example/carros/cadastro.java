@@ -38,7 +38,7 @@ public class cadastro extends AppCompatActivity {
     }
 
     public void proximo(View view) {
-        String m = marca.getText().toString();
+        String m = marca.getText().toString().toUpperCase();
         String p = placa.getText().toString();
         String a = ano.getText().toString();
         String o = modelo.getText().toString();
