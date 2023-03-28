@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ricar/Desktop/Dep/carros/app/src/main/res/layout/activity_cadastrados.xml" value="0.37395833333333334" />
-        <entry key="..\:/Users/ricar/Desktop/Dep/carros/app/src/main/res/layout/activity_cadastro.xml" value="0.19363538295577132" />
+        <entry key="..\:/Users/ricar/Desktop/Dep/carros/app/src/main/res/layout/activity_cadastrados.xml" value="0.25" />
+        <entry key="..\:/Users/ricar/Desktop/Dep/carros/app/src/main/res/layout/activity_cadastro.xml" value="0.25" />
         <entry key="..\:/Users/ricar/Desktop/Dep/carros/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/ricar/Desktop/Dep/carros/app/src/main/res/layout/fragment_mediapreco.xml" value="0.25" />
+        <entry key="..\:/Users/ricar/Desktop/Dep/carros/app/src/main/res/layout/fragment_todososcarros.xml" value="0.25" />
+        <entry key="..\:/Users/ricar/Desktop/Dep/carros/app/src/main/res/layout/layoutmedia.xml" value="0.25" />
+        <entry key="..\:/Users/ricar/Desktop/Dep/carros/app/src/main/res/layout/layouttodos.xml" value="0.25" />
       </map>
     </option>
   </component>
