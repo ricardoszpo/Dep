@@ -78,7 +78,6 @@ public class mediapreco extends Fragment {
         View v = inflater.inflate(R.layout.fragment_mediapreco, container, false);
         rvmedia = v.findViewById(R.id.rvmedia);
         logomedia = v.findViewById(R.id.logomedia);
-        Toast.makeText(getContext(), "Cheguei!", Toast.LENGTH_SHORT).show();
         carrega();
         logomedia.setOnClickListener(view -> {
             carrega();
