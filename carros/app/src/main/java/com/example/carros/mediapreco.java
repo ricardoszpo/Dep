@@ -12,10 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -74,28 +76,36 @@ public class mediapreco extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_mediapreco, container, false);
-        rvmedia = v.findViewById(R.id.rvmedia);
+        rvmedia = v.findViewById(R.id.rvtodos);
         logomedia = v.findViewById(R.id.logomedia);
+        Toast.makeText(getContext(), "Cheguei!", Toast.LENGTH_SHORT).show();
+        carrega();
         logomedia.setOnClickListener(view -> {
             carrega();
         });
         return v;
     }
     public void carrega(){
-
+        reference = FirebaseDatabase.getInstance().getReference().child("Carros");
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<carros> lista = new ArrayList<>();
+                ArrayList<Carro> lista = new ArrayList<>();
                 for (DataSnapshot dn : snapshot.getChildren()) {
-                    carros c = (carros) dn.getValue(carros.class);
+                    Carro c = (Carro) dn.getValue(Carro.class);
                     lista.add(c);
                 }
-                Recycleradaptermedia adapter = new Recycleradaptermedia(getContext(),lista,c -> {
+                ArrayList<String> marcas = new ArrayList<>();
+                for(Carro c : lista){
+                    if(!marcas.contains(c.getmarca().toUpperCase())){
+                        marcas.add(c.getmarca().toUpperCase());
+                    }
+                }
+                Recycleradaptermedia adapter = new Recycleradaptermedia(getContext(),lista,marcas,c -> {
                     AlertDialog.Builder alerta = new AlertDialog.Builder(getContext());
-                    alerta.setTitle(c.getPlaca());
-                    String mensagem = "Placa: "+c.getPlaca()+"\nMarca: "+c.getmarca()+"\nModelo: "+c.getModelo()+"\nAno: "+c.getAno()+"\nPreço: "+c.getpreco();
-                    alerta.setMessage(mensagem);
+                    //alerta.setTitle(c.getPlaca());
+                    //String mensagem = "Placa: "+c.getPlaca()+"\nMarca: "+c.getmarca()+"\nModelo: "+c.getModelo()+"\nAno: "+c.getAno()+"\nPreço: "+c.getpreco();
+                    alerta.setMessage("mensagem");
                     alerta.show();
                 });
                 rvmedia.setAdapter(adapter);

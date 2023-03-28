@@ -14,12 +14,14 @@ import java.util.ArrayList;
 
 public class Recycleradaptermedia extends RecyclerView.Adapter<Recycleradaptermedia.MyviewHolder> {
     Context context;
-    ArrayList<carros> lista;
+    ArrayList<Carro> lista;
+    ArrayList<String> marcas;
     Recycleradaptermedia.OnItemClickListener listener;
 
-    public Recycleradaptermedia(Context context, ArrayList<carros> lista, OnItemClickListener listener) {
+    public Recycleradaptermedia(Context context, ArrayList<Carro> lista, ArrayList<String> marcas, OnItemClickListener listener) {
         this.context = context;
         this.lista = lista;
+        this.marcas = marcas;
         this.listener = listener;
     }
 
@@ -32,17 +34,26 @@ public class Recycleradaptermedia extends RecyclerView.Adapter<Recycleradapterme
 
     @Override
     public void onBindViewHolder(@NonNull Recycleradaptermedia.MyviewHolder holder, int position) {
-        carros c = lista.get(position);
-        holder.marcaS.setText(c.getmarca());
-        holder.precoS.setText(c.getpreco());
+        String marca = marcas.get(position);
+        double media = 0;
+        int quantidade = 0;
+        for(Carro c : lista){
+            if(marca.equals(c.getmarca().toUpperCase())){
+                media += Double.parseDouble(c.getpreco());
+                quantidade ++;
+            }
+        }
+        media /= quantidade;
+        holder.marcaS.setText(marca);
+        holder.precoS.setText("Média: R$"+String.format("%.2f", media));
         holder.itemView.setOnClickListener(view ->{
-            listener.onItemClick(c);
+            listener.onItemClick(marca);
         });
     }
 
     @Override
     public int getItemCount() {
-        return lista.size();
+        return marcas.size();
     }
 
     public class MyviewHolder extends RecyclerView.ViewHolder {
@@ -56,6 +67,6 @@ public class Recycleradaptermedia extends RecyclerView.Adapter<Recycleradapterme
     }
 
     public interface OnItemClickListener {
-        void onItemClick(carros c);
+        void onItemClick(String marca);
     }
 }
