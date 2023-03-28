@@ -32,8 +32,8 @@ public class Recycleraptertodos extends RecyclerView.Adapter<Recycleraptertodos.
     @Override
     public void onBindViewHolder(@NonNull Recycleraptertodos.MyviewHolder holder, int position) {
         Carro c = lista.get(position);
-        holder.marcaT.setText(c.getPlaca());
-        holder.modeloT.setText(c.getmarca());
+        holder.marcaT.setText(c.getmarca());
+        holder.modeloT.setText(c.getModelo());
         holder.anoT.setText(c.getAno());
         holder.placaT.setText(c.getPlaca());
         holder.precoT.setText(c.getpreco());

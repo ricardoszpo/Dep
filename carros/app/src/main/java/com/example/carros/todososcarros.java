@@ -99,8 +99,7 @@ public class todososcarros extends Fragment {
                 }
                 Recycleraptertodos adapter = new Recycleraptertodos(getContext(),lista,c -> {
                     AlertDialog.Builder alerta = new AlertDialog.Builder(getContext());
-                    alerta.setTitle(c.getPlaca());
-                    String mensagem = "Nome: "+c.getNome()+"\nTelefone: "+c.getTelefone()+"\nAtendimento: "+c.getAtendimento()+"\nInfraestrutura: "+c.getInfraestrutura()+"\nQualidade do serviço: "+c.getQualidadedoservico()+"\nConhecimento: "+c.getConhecimento()+"\nMes: "+c.getMes()+"\nano: "+c.getAno();
+                    String mensagem = "Marca: "+c.getmarca()+"\nModelo: "+c.getModelo()+"\nPlaca: "+c.getPlaca()+"\nAno: "+c.getAno()+"\nPreço  : "+c.getpreco();
                     alerta.setMessage(mensagem);
                     alerta.show();
                 });

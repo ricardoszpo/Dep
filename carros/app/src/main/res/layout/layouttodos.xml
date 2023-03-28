@@ -10,6 +10,18 @@
         android:layout_height="wrap_content"
         android:background="@drawable/background">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:background="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/precoS"
+            app:layout_constraintVertical_bias="1.0"
+            tools:srcCompat="@tools:sample/avatars" />
+
         <TextView
             android:id="@+id/marcaT"
             android:layout_width="wrap_content"
@@ -30,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="50dp"
             android:layout_marginBottom="40dp"
             android:text="TextView"
@@ -41,24 +53,11 @@
             app:layout_constraintTop_toBottomOf="@+id/marcaT"
             app:layout_constraintVertical_bias="0.0" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_height="3dp"
-            android:background="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/precoS"
-            app:layout_constraintVertical_bias="1.0"
-            tools:srcCompat="@tools:sample/avatars" />
-
         <TextView
             android:id="@+id/anoT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginTop="5dp"
             android:text="TextView"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -71,8 +70,7 @@
             android:id="@+id/placaT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="70dp"
+            android:layout_marginTop="5dp"
             android:text="TextView"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -85,8 +83,7 @@
             android:id="@+id/precoT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
             android:text="TextView"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
