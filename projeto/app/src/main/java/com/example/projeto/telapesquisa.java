@@ -13,6 +13,7 @@ import android.widget.Toast;
 public class telapesquisa extends AppCompatActivity {
     static Cliente cliente;
     TextView pergunta;
+    TextView pergunta2;
     int numPergunta = 1;
     static boolean avaliando = true;
 
@@ -32,7 +33,7 @@ public class telapesquisa extends AppCompatActivity {
 
     public void definePergunta() { //define quais perguntas serão feitas aos clientes
         if (numPergunta == 1) {
-            pergunta.setText("Avalie nosso atendimento");
+            pergunta.setText("Atendimento");
         } else if (numPergunta == 2) {
             pergunta.setText("Avalie nossa infraestrutura");
         } else if (numPergunta == 3) {
@@ -122,7 +123,7 @@ public class telapesquisa extends AppCompatActivity {
         public void onBackPressed () {
             String mensagem = "<h1><big>Você precisa finalizar a pesquisa</big></h1>";
             Toast toast = Toast.makeText(this, HtmlCompat.fromHtml(mensagem, HtmlCompat.FROM_HTML_MODE_COMPACT), Toast.LENGTH_LONG);
-            toast.getView().setBackgroundColor(Color.GREEN);
+            toast.getView().setBackgroundColor(Color.RED);
             toast.show();
         }
     }

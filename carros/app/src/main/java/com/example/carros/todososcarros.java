@@ -79,11 +79,7 @@ public class todososcarros extends Fragment {
         View v = inflater.inflate(R.layout.fragment_todososcarros, container, false);
         rvtodos = v.findViewById(R.id.rvtodos);
         logotodos = v.findViewById(R.id.logotodos);
-        Toast.makeText(getContext(), "Cheguei!", Toast.LENGTH_SHORT).show();
         carrega();
-        logotodos.setOnClickListener(view -> {
-            carrega();
-        });
         return v;
     }
 
