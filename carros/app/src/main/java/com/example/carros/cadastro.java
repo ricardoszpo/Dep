@@ -14,7 +14,6 @@ public class cadastro extends AppCompatActivity {
     EditText ano, marca, placa, modelo, preco;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,15 +50,13 @@ public class cadastro extends AppCompatActivity {
             startActivity(i);
             c.salvar();
             limpar();
-        } else {
+        } else if (p.equals("") && m.equals("") && a.equals("") && r.equals("") && o.equals("")) {
             String mensagem = "<h1><big>Preencha todos corretamente</big></h1>";
             Toast toast = Toast.makeText(this, HtmlCompat.fromHtml(mensagem, HtmlCompat.FROM_HTML_MODE_COMPACT), Toast.LENGTH_LONG);
             toast.getView().setBackgroundColor(Color.GREEN);
             toast.show();
-
-        }
-
         }
     }
+}
     
 
