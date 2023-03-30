@@ -14,7 +14,8 @@ public class telapesquisa extends AppCompatActivity {
     static Cliente cliente;
     TextView pergunta;
     TextView pergunta2;
-    int numPergunta = 1;
+    TextView pergunta3;
+    TextView pergunta4;
     static boolean avaliando = true;
 
     @Override
@@ -27,88 +28,24 @@ public class telapesquisa extends AppCompatActivity {
         cliente.setInfraestrutura(0);
         cliente.setQualidadedoservico(0);
         pergunta = findViewById(R.id.pergunta);
+        pergunta2 = findViewById(R.id.pergunta2);
+        pergunta3 = findViewById(R.id.pergunta3);
+        pergunta4 = findViewById(R.id.pergunta4);
         definePergunta();
     }
 
 
     public void definePergunta() { //define quais perguntas serão feitas aos clientes
-        if (numPergunta == 1) {
             pergunta.setText("Atendimento");
-        } else if (numPergunta == 2) {
-            pergunta.setText("Avalie nossa infraestrutura");
-        } else if (numPergunta == 3) {
-            pergunta.setText("Avalie nossa qualidade do serviço");
-        } else if (numPergunta == 4) {
-            pergunta.setText("Avalie o nosso grau de conhecimento");
-        } else {
+            pergunta2.setText("Avalie nossa infraestrutura");
+            pergunta3.setText("Avalie nossa qualidade do serviço");
+            pergunta4.setText("Avalie o nosso grau de conhecimento");
             sugestoes.cliente = cliente;
-            Intent i = new Intent(this, sugestoes.class);
-            startActivity(i);
+//            Intent i = new Intent(this, sugestoes.class);
+//            startActivity(i);
 
         }
-    }
 
-    public void excelente(View v) { //valor das perguntas
-        if (numPergunta == 1) {
-            cliente.atendimento += 5;
-        } else if (numPergunta == 2) {
-            cliente.infraestrutura += 5;
-        } else if (numPergunta == 3) {
-            cliente.qualidadedoservico += 5;
-        } else if (numPergunta == 4) {
-            cliente.conhecimento += 5;
-        }
-        numPergunta++;
-        definePergunta();
-    }
-
-    public void bom(View v) {
-        if (numPergunta == 1) {
-            cliente.atendimento += 4;
-        } else if (numPergunta == 2) {
-            cliente.infraestrutura += 4;
-        } else if (numPergunta == 3) {
-            cliente.qualidadedoservico += 4;
-        } else if (numPergunta == 4) {
-            cliente.conhecimento += 4;
-        }
-        numPergunta++;
-        definePergunta();
-    }
-
-    public void regular(View v) {
-        if (numPergunta == 1) {
-            cliente.atendimento += 3;
-        } else if (numPergunta == 2) {
-            cliente.infraestrutura += 3;
-        } else if (numPergunta == 3) {
-            cliente.qualidadedoservico += 3;
-        } else if (numPergunta == 4) {
-            cliente.conhecimento += 3;
-        }
-        numPergunta++;
-        definePergunta();
-    }
-
-    public void ruim(View v) {
-        if (numPergunta == 1) {
-            cliente.atendimento += 2;
-        } else if (numPergunta == 2) {
-            cliente.infraestrutura += 2;
-        } else if (numPergunta == 3) {
-            cliente.qualidadedoservico += 2;
-        } else if (numPergunta == 4) {
-            cliente.conhecimento += 2;
-        }
-        numPergunta++;
-        definePergunta();
-    }
-
-    public void pessimo(View v) {
-
-        numPergunta++;
-        definePergunta();
-    }
 
     @Override
     protected void onStart() {
