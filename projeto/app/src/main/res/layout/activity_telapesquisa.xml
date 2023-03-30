@@ -15,7 +15,7 @@
         android:background="@drawable/mediano"
 
         android:contentDescription="@string/app_name"
-        android:onClick="regular"
+        android:onClick="regular4"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/pessimo"
         android:contentDescription="@string/app_name"
-        android:onClick="pessimo"
+        android:onClick="pessimo4"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +64,7 @@
         android:layout_marginEnd="50dp"
         android:background="@drawable/otimo"
         android:contentDescription="@string/app_name"
-        android:onClick="excelente"
+        android:onClick="execelente4"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/regular4"
@@ -81,7 +81,7 @@
         android:background="@drawable/mediano"
         android:contentDescription="@string/app_name"
 
-        android:onClick="regular"
+        android:onClick="regular3"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,7 +98,7 @@
 
         android:background="@drawable/otimo"
         android:contentDescription="@string/app_name"
-        android:onClick="excelente"
+        android:onClick="excelente3"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/regular3"
@@ -116,7 +116,7 @@
 
         android:background="@drawable/pessimo"
         android:contentDescription="@string/app_name"
-        android:onClick="pessimo"
+        android:onClick="pessimo3"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,7 +148,7 @@
         android:layout_marginEnd="50dp"
         android:background="@drawable/otimo"
         android:contentDescription="@string/app_name"
-        android:onClick="excelente"
+        android:onClick="excelente2"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/regular2"
@@ -166,7 +166,7 @@
 
         android:background="@drawable/pessimo"
         android:contentDescription="@string/app_name"
-        android:onClick="pessimo"
+        android:onClick="pessimo2"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -183,7 +183,7 @@
         android:background="@drawable/mediano"
         android:contentDescription="@string/app_name"
 
-        android:onClick="regular"
+        android:onClick="regular2"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -207,16 +207,16 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="235dp"
-        android:layout_height="235dp"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
         android:layout_marginTop="10dp"
+        android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/oleoquente"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/oleoquente" />
 
     <ImageButton
         android:id="@+id/excelente"
@@ -243,8 +243,8 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/mediano"
         android:contentDescription="@string/app_name"
-        android:onClick="regular"
 
+        android:onClick="regular"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

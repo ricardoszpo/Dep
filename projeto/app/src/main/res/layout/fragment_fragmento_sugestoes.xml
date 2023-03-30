@@ -27,8 +27,8 @@
 
         <ImageView
             android:id="@+id/logosugestoes"
-            android:layout_width="235dp"
-            android:layout_height="235dp"
+            android:layout_width="260dp"
+            android:layout_height="260dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/oleoquente"
             app:layout_constraintBottom_toTopOf="@+id/rv"
