@@ -3,6 +3,7 @@ package com.example.carros;
 import static com.example.carros.mediapreco.reference;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -93,10 +94,23 @@ public class todososcarros extends Fragment {
                     Carro c = (Carro) dn.getValue(Carro.class);
                     lista.add(c);
                 }
-                Recycleraptertodos adapter = new Recycleraptertodos(getContext(),lista,c -> {
+                Recycleraptertodos adapter = new Recycleraptertodos(getContext(), lista, c -> {
                     AlertDialog.Builder alerta = new AlertDialog.Builder(getContext());
-                    String mensagem = "Marca: "+c.getmarca()+"\nModelo: "+c.getModelo()+"\nPlaca: "+c.getPlaca()+"\nAno: "+c.getAno()+"\nPreço  : "+c.getpreco();
+                    alerta.setTitle("Excluir");
+                    String mensagem = "Marca: " + c.getmarca() + "\nModelo: " + c.getModelo() + "\nPlaca: " + c.getPlaca() + "\nAno: " + c.getAno() + "\nPreço  : " + c.getpreco();
                     alerta.setMessage(mensagem);
+                    alerta.setPositiveButton("Remover", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //dn.getRef().removeValue(); //remove um item do firebase
+                        }
+                    });
+                    alerta.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
                     alerta.show();
                 });
                 rvtodos.setAdapter(adapter);
