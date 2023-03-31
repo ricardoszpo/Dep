@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +18,9 @@ public class telapesquisa extends AppCompatActivity {
     TextView pergunta2;
     TextView pergunta3;
     TextView pergunta4;
+    private ImageButton regular;
+    private ImageButton excelente;
+    private ImageButton pessimo;
     ImageView e1, e2, e3, e4, r1, r2, r3, r4, p1, p2, p3, p4;
     static boolean avaliando = true;
     int contador = 0;
@@ -46,6 +50,9 @@ public class telapesquisa extends AppCompatActivity {
         p2 = findViewById(R.id.pessimo2);
         p3 = findViewById(R.id.pessimo3);
         p4 = findViewById(R.id.pessimo4);
+        excelente = findViewById(R.id.excelente);
+        regular = findViewById(R.id.regular);
+        pessimo = findViewById(R.id.pessimo);
         definePergunta();
     }
 
@@ -62,7 +69,7 @@ public class telapesquisa extends AppCompatActivity {
         if (cliente.getAtendimento() == 5) {
             cliente.setAtendimento(3);
             contador++;
-            e1.setBackgroundResource(R.drawable.feito);
+            e1.setBackgroundResource(R.drawable.otimo);
             r1.setBackgroundResource(R.drawable.feito);
             p1.setBackgroundResource(R.drawable.feito);
             verificaavaliacoes();
@@ -73,7 +80,7 @@ public class telapesquisa extends AppCompatActivity {
             cliente.setAtendimento(1);
             contador++;
             e1.setBackgroundResource(R.drawable.feito);
-            r1.setBackgroundResource(R.drawable.feito);
+            r1.setBackgroundResource(R.drawable.mediano);
             p1.setBackgroundResource(R.drawable.feito);
             verificaavaliacoes();
         }
@@ -84,7 +91,7 @@ public class telapesquisa extends AppCompatActivity {
             contador++;
             e1.setBackgroundResource(R.drawable.feito);
             r1.setBackgroundResource(R.drawable.feito);
-            p1.setBackgroundResource(R.drawable.feito);
+            p1.setBackgroundResource(R.drawable.pessimo);
             verificaavaliacoes();
         }
     }
@@ -92,7 +99,7 @@ public class telapesquisa extends AppCompatActivity {
         if (cliente.getInfraestrutura() == 5) {
             cliente.setInfraestrutura(3);
             contador++;
-            e2.setBackgroundResource(R.drawable.feito);
+            e2.setBackgroundResource(R.drawable.otimo);
             r2.setBackgroundResource(R.drawable.feito);
             p2.setBackgroundResource(R.drawable.feito);
             verificaavaliacoes();
@@ -103,7 +110,7 @@ public class telapesquisa extends AppCompatActivity {
             cliente.setInfraestrutura(1);
             contador++;
             e2.setBackgroundResource(R.drawable.feito);
-            r2.setBackgroundResource(R.drawable.feito);
+            r2.setBackgroundResource(R.drawable.mediano);
             p2.setBackgroundResource(R.drawable.feito);
             verificaavaliacoes();
         }
@@ -114,7 +121,7 @@ public class telapesquisa extends AppCompatActivity {
             contador++;
             e2.setBackgroundResource(R.drawable.feito);
             r2.setBackgroundResource(R.drawable.feito);
-            p2.setBackgroundResource(R.drawable.feito);
+            p2.setBackgroundResource(R.drawable.pessimo);
             verificaavaliacoes();
         }
     }
@@ -122,7 +129,7 @@ public class telapesquisa extends AppCompatActivity {
         if (cliente.getQualidadedoservico() == 5) {
             cliente.setQualidadedoservico(3);
             contador++;
-            e3.setBackgroundResource(R.drawable.feito);
+            e3.setBackgroundResource(R.drawable.otimo);
             r3.setBackgroundResource(R.drawable.feito);
             p3.setBackgroundResource(R.drawable.feito);
             verificaavaliacoes();
@@ -133,7 +140,7 @@ public class telapesquisa extends AppCompatActivity {
             cliente.setQualidadedoservico(1);
             contador++;
             e3.setBackgroundResource(R.drawable.feito);
-            r3.setBackgroundResource(R.drawable.feito);
+            r3.setBackgroundResource(R.drawable.mediano);
             p3.setBackgroundResource(R.drawable.feito);
             verificaavaliacoes();
         }
@@ -144,7 +151,7 @@ public class telapesquisa extends AppCompatActivity {
             contador++;
             e3.setBackgroundResource(R.drawable.feito);
             r3.setBackgroundResource(R.drawable.feito);
-            p3.setBackgroundResource(R.drawable.feito);
+            p3.setBackgroundResource(R.drawable.pessimo);
             verificaavaliacoes();
         }
     }
@@ -152,7 +159,7 @@ public class telapesquisa extends AppCompatActivity {
         if (cliente.getConhecimento() == 5) {
             cliente.setConhecimento(3);
             contador++;
-            e3.setBackgroundResource(R.drawable.feito);
+            e3.setBackgroundResource(R.drawable.otimo);
             r3.setBackgroundResource(R.drawable.feito);
             p3.setBackgroundResource(R.drawable.feito);
             verificaavaliacoes();
@@ -163,7 +170,7 @@ public class telapesquisa extends AppCompatActivity {
             cliente.setConhecimento(1);
             contador++;
             e3.setBackgroundResource(R.drawable.feito);
-            r3.setBackgroundResource(R.drawable.feito);
+            r3.setBackgroundResource(R.drawable.mediano);
             p3.setBackgroundResource(R.drawable.feito);
             verificaavaliacoes();
         }
@@ -174,7 +181,7 @@ public class telapesquisa extends AppCompatActivity {
             contador++;
             e3.setBackgroundResource(R.drawable.feito);
             r3.setBackgroundResource(R.drawable.feito);
-            p3.setBackgroundResource(R.drawable.feito);
+            p3.setBackgroundResource(R.drawable.pessimo);
             verificaavaliacoes();
         }
     }
@@ -197,7 +204,7 @@ public class telapesquisa extends AppCompatActivity {
     }
 
     public void verificaavaliacoes() {
-        if (contador > 3) {
+        if (contador >= 4) {
             sugestoes.cliente = cliente;
             Intent i = new Intent(this, sugestoes.class);
             startActivity(i);
