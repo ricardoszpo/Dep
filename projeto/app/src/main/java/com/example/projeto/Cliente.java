@@ -15,6 +15,12 @@ public class Cliente {
         this.ano = ano;
     }
 
+    public Cliente(String placa, int mes, int ano) {
+        this.placa = placa;
+        this.ano = ano;
+        this.mes = mes;
+    }
+
     public Cliente(String nome, String telefone, String sugestoes, String placa, int atendimento, int infraestrutura, int qualidadedoservico, int conhecimento, int mes, int ano) {
         this.nome = nome;
         this.telefone = telefone;
@@ -110,8 +116,9 @@ public class Cliente {
     public void setQualidadedoservico(int qualidadedoservico) {
         this.qualidadedoservico = qualidadedoservico;
     }
-    public void salvar(){
+
+    public void salvar() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("clientes").child(ano+"").child(mes+"").child(placa).setValue(this);
+        reference.child("clientes").child(ano + "").child(mes + "").child(placa).setValue(this);
     }
 }

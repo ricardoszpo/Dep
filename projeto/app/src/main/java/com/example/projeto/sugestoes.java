@@ -15,13 +15,18 @@ import java.util.ArrayList;
 public class sugestoes extends AppCompatActivity {
     static Cliente cliente;
     EditText campo;
+    EditText nome;
+    EditText telefone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sugestoes);
         getSupportActionBar().hide();
+        nome = findViewById(R.id.nome);
+        telefone = findViewById(R.id.telefone);
         campo = findViewById(R.id.sugestao);
+        limpar();
     }
 
     @Override
@@ -31,13 +36,21 @@ public class sugestoes extends AppCompatActivity {
         toast.getView().setBackgroundColor(Color.GREEN);
         toast.show();
     }
+    public void limpar() {
+        nome.setText("");
+        telefone.setText("");
+        campo.setText("");
+    }
 
     public void envia(View v) {
         String texto = campo.getText().toString();
         cliente.setSugestoes(texto);
+        cliente.setNome(nome.getText().toString());
+        cliente.setTelefone(telefone.getText().toString());
         campo.setText("");
         cliente.salvar();
         telapesquisa.avaliando = false;
         super.onBackPressed();
+        limpar();
     }
 }

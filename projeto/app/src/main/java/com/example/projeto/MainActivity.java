@@ -15,37 +15,31 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    EditText nome, telefone, placa;
+    EditText placa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
-        nome = findViewById(R.id.nome);
-        telefone = findViewById(R.id.telefone);
         placa = findViewById(R.id.placa);
         limpar();
     }
 
     public void limpar() { //limpa todas as caixas de texto apos serem usadas
-        nome.setText("");
-        telefone.setText("");
         placa.setText("");
     }
 
     public void proximo(View view) {
-        String n = nome.getText().toString();
-        String t = telefone.getText().toString();
         String p = placa.getText().toString();
-        if (n.equals("") && t.equals("") && p.equals("")) { //senha para entrar na parte das notas e sugestoes do app
+        if (p.equals("")) { //senha para entrar na parte das notas e sugestoes do app
             Intent i = new Intent(this, demonstrativo.class);
             startActivity(i);
             limpar();
         } else if (!p.equals("")) {
             int m = LocalDateTime.now().getMonthValue();
             int a = LocalDateTime.now().getYear();
-            Cliente c = new Cliente(p, n, t, m, a);
+            Cliente c = new Cliente(p, m, a);
             Intent i = new Intent(this, telapesquisa.class);
             startActivity(i);
             telapesquisa.cliente = c;

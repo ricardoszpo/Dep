@@ -4,25 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@color/yellow"
     tools:context=".MainActivity">
-
-    <View
-        android:id="@+id/rectangle_3"
-        android:layout_width="0dp"
-        android:layout_height="67dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="150dp"
-        android:alpha="0.3"
-        android:background="@drawable/rectangle_3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo"
-        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -61,54 +44,11 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/nome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#00FFFFFF"
-        android:fontFamily="monospace"
-        android:hint="Nome:"
-        android:inputType="textPersonName"
-        android:shadowColor="#000000"
-        android:textAlignment="center"
-        android:textColor="#535050"
-        android:textColorHint="#FF535050"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/rectangle_3"
-        app:layout_constraintEnd_toEndOf="@+id/rectangle_3"
-        app:layout_constraintStart_toStartOf="@+id/rectangle_3"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_3" />
-
-    <EditText
-        android:id="@+id/telefone"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="70dp"
-        android:backgroundTint="#FFFFFF"
-        android:ems="10"
-        android:fontFamily="monospace"
-        android:hint="Telefone:"
-        android:inputType="phone"
-        android:shadowColor="#000000"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textColorHint="#FF535050"
-        android:textSize="44sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nome"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
         android:id="@+id/placa"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="70dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
@@ -124,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/telefone"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.AppCompatButton

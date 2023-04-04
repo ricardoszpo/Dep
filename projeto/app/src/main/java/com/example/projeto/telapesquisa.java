@@ -58,10 +58,10 @@ public class telapesquisa extends AppCompatActivity {
 
 
     public void definePergunta() { //define quais perguntas serão feitas aos clientes
-        pergunta.setText("Atendimento");
-        pergunta2.setText("Avalie nossa infraestrutura");
-        pergunta3.setText("Avalie nossa qualidade do serviço");
-        pergunta4.setText("Avalie o nosso grau de conhecimento");
+        pergunta.setText("Atendimento:");
+        pergunta2.setText("Infraestrutura:");
+        pergunta3.setText("Qualidade do serviço:");
+        pergunta4.setText("Conhecimento:");
         sugestoes.cliente = cliente;
     }
 
@@ -159,9 +159,9 @@ public class telapesquisa extends AppCompatActivity {
         if (cliente.getConhecimento() == 5) {
             cliente.setConhecimento(3);
             contador++;
-            e3.setBackgroundResource(R.drawable.otimo);
-            r3.setBackgroundResource(R.drawable.feito);
-            p3.setBackgroundResource(R.drawable.feito);
+            e4.setBackgroundResource(R.drawable.otimo);
+            r4.setBackgroundResource(R.drawable.feito);
+            p4.setBackgroundResource(R.drawable.feito);
             verificaavaliacoes();
         }
     }
@@ -169,9 +169,9 @@ public class telapesquisa extends AppCompatActivity {
         if (cliente.getConhecimento() == 5) {
             cliente.setConhecimento(1);
             contador++;
-            e3.setBackgroundResource(R.drawable.feito);
-            r3.setBackgroundResource(R.drawable.mediano);
-            p3.setBackgroundResource(R.drawable.feito);
+            e4.setBackgroundResource(R.drawable.feito);
+            r4.setBackgroundResource(R.drawable.mediano);
+            p4.setBackgroundResource(R.drawable.feito);
             verificaavaliacoes();
         }
     }
@@ -179,9 +179,9 @@ public class telapesquisa extends AppCompatActivity {
         if (cliente.getConhecimento() == 5) {
             cliente.setConhecimento(0);
             contador++;
-            e3.setBackgroundResource(R.drawable.feito);
-            r3.setBackgroundResource(R.drawable.feito);
-            p3.setBackgroundResource(R.drawable.pessimo);
+            e4.setBackgroundResource(R.drawable.feito);
+            r4.setBackgroundResource(R.drawable.feito);
+            p4.setBackgroundResource(R.drawable.pessimo);
             verificaavaliacoes();
         }
     }

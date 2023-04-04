@@ -103,17 +103,32 @@ public class todososcarros extends Fragment {
                     alerta.setPositiveButton("Excluir", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int i) {
-                            for (DataSnapshot dn : snapshot.getChildren()){
-                                if (dn.getValue(Carro.class).getPlaca().equals(c.getPlaca())){
-                                    dn.getRef().removeValue();
-                                    getActivity().onBackPressed();
-                                    Toast.makeText(getContext(), "Removido", Toast.LENGTH_SHORT).show();
-                                    break;
+                            AlertDialog.Builder confirmacao = new AlertDialog.Builder(getContext());
+                            confirmacao.setTitle("Confirmação");
+                            confirmacao.setMessage("Deseja mesmo excluir este item?");
+                            confirmacao.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    for (DataSnapshot dn : snapshot.getChildren()) {
+                                        if (dn.getValue(Carro.class).getPlaca().equals(c.getPlaca())) {
+                                            dn.getRef().removeValue();
+                                            getActivity().onBackPressed();
+                                            Toast.makeText(getContext(), "Removido", Toast.LENGTH_SHORT).show();
+                                            break;
+                                        }
+                                    }
                                 }
-                            }
+                            });
+                            confirmacao.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            });
+                            confirmacao.show();
                         }
                     });
-                    alerta.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    alerta.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int i) {
                             dialog.cancel();

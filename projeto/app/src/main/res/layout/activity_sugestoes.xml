@@ -30,7 +30,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="250dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="250dp"
         android:background="@drawable/background_button"
         android:onClick="envia"
@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sugestao"
+        app:layout_constraintTop_toBottomOf="@+id/telefone"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
@@ -54,6 +54,7 @@
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:gravity="start|top"
+        android:hint="(Opcional)"
         android:inputType="textMultiLine"
         android:maxLength="313"
         android:textSize="34sp"
@@ -75,5 +76,40 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/oleoquente" />
+
+    <EditText
+        android:id="@+id/nome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="150dp"
+        android:ems="10"
+        android:hint="Nome: (Opcional)"
+        android:inputType="textPersonName"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sugestao"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/telefone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="150dp"
+        android:ems="10"
+        android:hint="Telefone: (Opcional)"
+        android:inputType="number"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nome"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

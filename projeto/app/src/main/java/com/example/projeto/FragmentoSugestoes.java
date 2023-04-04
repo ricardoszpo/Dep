@@ -1,6 +1,7 @@
 package com.example.projeto;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -81,6 +83,7 @@ public class FragmentoSugestoes extends Fragment {
         });
         return v;
     }
+
     public void carrega() {
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -91,11 +94,45 @@ public class FragmentoSugestoes extends Fragment {
                     Cliente c = (Cliente) dn.getValue(Cliente.class);
                     lista.add(c); //adiciona o cliente a lista
                 }
-                Recycleradapter adapter = new Recycleradapter(getContext(),lista,c -> {
+                Recycleradapter adapter = new Recycleradapter(getContext(), lista, c -> {
                     AlertDialog.Builder alerta = new AlertDialog.Builder(getContext()); //cria a mensagem alert dialog
                     alerta.setTitle(c.getPlaca()); //pega a paga e coloca como titulo da alertdialog
-                    String mensagem = "Nome: "+c.getNome()+"\nTelefone: "+c.getTelefone()+"\nAtendimento: "+c.getAtendimento()+"\nInfraestrutura: "+c.getInfraestrutura()+"\nQualidade do serviço: "+c.getQualidadedoservico()+"\nConhecimento: "+c.getConhecimento()+"\nMes: "+c.getMes()+"\nano: "+c.getAno();// pega as informaçoes do cliente
+                    String mensagem = "Nome: " + c.getNome() + "\nTelefone: " + c.getTelefone() + "\nAtendimento: " + c.getAtendimento() + "\nInfraestrutura: " + c.getInfraestrutura() + "\nQualidade do serviço: " + c.getQualidadedoservico() + "\nConhecimento: " + c.getConhecimento() + "\nMes: " + c.getMes() + "\nano: " + c.getAno();// pega as informaçoes do cliente
                     alerta.setMessage(mensagem); //usa a string mensagem para setar o texto da alertdialog
+                    alerta.setPositiveButton("Excluir", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int i) {
+                            AlertDialog.Builder confirmacao = new AlertDialog.Builder(getContext());
+                            confirmacao.setTitle("Confirmação");
+                            confirmacao.setMessage("Deseja mesmo excluir este item?");
+                            confirmacao.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    for (DataSnapshot dn : snapshot.getChildren()) {
+                                        if (dn.getValue(Cliente.class).getPlaca().equals(c.getPlaca())) {
+                                            dn.getRef().removeValue();
+                                            getActivity().onBackPressed();
+                                            Toast.makeText(getContext(), "Removido", Toast.LENGTH_SHORT).show();
+                                            break;
+                                        }
+                                    }
+                                }
+                            });
+                            confirmacao.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            });
+                            confirmacao.show();
+                        }
+                    });
+                    alerta.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int i) {
+                            dialog.cancel();
+                        }
+                    });
                     alerta.show(); //mostra a alertdialog
                 });
                 rv.setAdapter(adapter);
